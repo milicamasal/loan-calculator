@@ -33,7 +33,7 @@ public class LoanServiceImpl implements LoanService {
 
         installmentPlan.getInstallments().stream()
                 .map(installmentDto -> modelMapper.map(installmentDto, Installment.class))
-                .forEach(loanRequest::addInstallmentPlan);
+                .forEach(loanRequest::addInstallment);
 
         LoanRequest savedLoanRequest = loanRequestRepository.save(loanRequest);
 

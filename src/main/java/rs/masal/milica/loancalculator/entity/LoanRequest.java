@@ -39,12 +39,12 @@ public class LoanRequest {
         this.numberOfMonths = numberOfMonths;
     }
 
-    public void addInstallmentPlan(Installment installment) {
+    public void addInstallment(Installment installment) {
         installments.add(installment);
         installment.setLoanRequest(this);
     }
 
-    public void removeInstallmentPlan(Installment installment) {
+    public void removeInstallment(Installment installment) {
         installments.remove(installment);
         installment.setLoanRequest(null);
     }
