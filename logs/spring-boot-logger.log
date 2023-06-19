@@ -1,9 +1,0 @@
-2023-06-20 00:36:23,082 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-06-20 00:36:23,084 INFO org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl [SpringApplicationShutdownHook] HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
-2023-06-20 00:36:23,093 ERROR org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl [SpringApplicationShutdownHook] HHH000478: Unsuccessful: alter table installment drop constraint FKrsdsndtfm0grq5dxpg0jjqhew
-2023-06-20 00:36:23,095 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper$StandardWarningHandler [SpringApplicationShutdownHook] SQL Warning Code: 0, SQLState: 00000
-2023-06-20 00:36:23,096 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper$StandardWarningHandler [SpringApplicationShutdownHook] table "installment" does not exist, skipping
-2023-06-20 00:36:23,098 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper$StandardWarningHandler [SpringApplicationShutdownHook] SQL Warning Code: 0, SQLState: 00000
-2023-06-20 00:36:23,099 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper$StandardWarningHandler [SpringApplicationShutdownHook] table "loan_request" does not exist, skipping
-2023-06-20 00:36:23,108 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2023-06-20 00:36:23,138 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
