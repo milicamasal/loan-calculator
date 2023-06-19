@@ -1,6 +1,10 @@
 package rs.masal.milica.loancalculator.domain.dto;
 
-import lombok.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -10,7 +14,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ToString
 public class InstallmentPlanDto {
     private BigDecimal totalPaidAmount;
     private BigDecimal totalInterestAmount;

@@ -20,10 +20,12 @@ public class LoanRequestDto {
     @Positive(message = "{loan-amount.positive}")
     @NotNull(message = "{loan-amount.required}")
     private BigDecimal loanAmount;
+
     @Positive(message = "{annual-interest-rate.positive}")
     @DecimalMax(value = "100")
     @NotNull(message = "{annual-interest-rate.required}")
     private BigDecimal annualInterestRate;
+
     @Positive(message = "{number-of-months.positive}")
     @Max(value = 600, message = "{number-of-months.less-than-600}")
     private int numberOfMonths;
