@@ -29,7 +29,7 @@ class SimpleLoanCalculatorTest {
 
 
     @Test
-    void shouldCalculateCorrectInstallmentPlan() {
+    void submitsLoanRequest_ReturnsCorrectInstallmentPlan() {
         InstallmentPlanDto expectedInstallmentPlan = TestData.INSTALLMENT_PLAN_DTO;
         InstallmentPlanDto calculatedInstallmentPlan = simpleLoanCalculator.calculate(TestData.LOAN_REQUEST_DTO);
 
@@ -53,7 +53,7 @@ class SimpleLoanCalculatorTest {
     }
 
     @Test
-    void shouldThrowExceptionForNegativeLoanAmount() {
+    void submitsNegativeLoanAmount_ThrowsException() {
         Exception exception = assertThrows(ConstraintViolationException.class, () -> {
             simpleLoanCalculator.calculate(TestData.LOAN_REQUEST_NEGATIVE_LOAN_AMOUNT_DTO);
         });
@@ -65,7 +65,7 @@ class SimpleLoanCalculatorTest {
     }
 
     @Test
-    void shouldThrowExceptionForNegativeAnnualInterestRate() {
+    void submitsNegativeAnnualInterestRate_ThrowsException() {
         Exception exception = assertThrows(ConstraintViolationException.class, () -> {
             simpleLoanCalculator.calculate(TestData.LOAN_REQUEST_NEGATIVE_ANNUAL_INTEREST_RATE);
         });
@@ -77,7 +77,7 @@ class SimpleLoanCalculatorTest {
     }
 
     @Test
-    void shouldThrowExceptionForZeroNumberOfMonths() {
+    void submitsZeroNumberOfMonths_ThrowsException() {
         Exception exception = assertThrows(ConstraintViolationException.class, () -> {
             simpleLoanCalculator.calculate(TestData.LOAN_REQUEST_ZERO_NUMBER_OF_MONTHS);
         });

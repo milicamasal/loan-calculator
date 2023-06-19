@@ -12,29 +12,29 @@ import java.math.BigDecimal;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "INSTALLMENT")
+@Table(name = "installment")
 public class Installment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "INSTALLMENT_NO", nullable = false, updatable = false)
+    @Column(name = "installment_no", nullable = false, updatable = false)
     private int installmentNo;
 
-    @Column(name = "PAYMENT_AMOUNT", nullable = false, updatable = false)
+    @Column(name = "payment_amount", nullable = false, updatable = false)
     private BigDecimal paymentAmount;
 
-    @Column(name = "PRINCIPAL_AMOUNT", nullable = false, updatable = false)
+    @Column(name = "principal_amount", nullable = false, updatable = false)
     private BigDecimal principalAmount;
 
-    @Column(name = "INTEREST_AMOUNT", nullable = false, updatable = false)
+    @Column(name = "interest_amount", nullable = false, updatable = false)
     private BigDecimal interestAmount;
 
-    @Column(name = "BALANCE_OWED", nullable = false, updatable = false)
+    @Column(name = "balance_owed", nullable = false, updatable = false)
     private BigDecimal balanceOwed;
 
     @ManyToOne
-    @JoinColumn(name = "LOAN_REQUEST", updatable = false, nullable = false)
+    @JoinColumn(name = "loan_request", updatable = false, nullable = false)
     private LoanRequest loanRequest;
 
     public Installment(BigDecimal paymentAmount,

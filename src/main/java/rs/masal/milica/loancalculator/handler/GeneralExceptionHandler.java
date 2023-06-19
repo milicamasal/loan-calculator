@@ -1,6 +1,6 @@
 package rs.masal.milica.loancalculator.handler;
 
-import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -14,13 +14,13 @@ import java.util.*;
 
 
 @RestControllerAdvice
-@RequiredArgsConstructor
+@Slf4j
 class GeneralExceptionHandler {
-
 
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     ValidationErrorResponse onConstraintValidationException(ConstraintViolationException ex) {
+        log.error("onConstraintValidationException ", ex);
         ValidationErrorResponse errorResponse = new ValidationErrorResponse();
         for (ConstraintViolation violation : ex.getConstraintViolations()) {
             errorResponse.getViolations().add(Violation.builder()
@@ -36,6 +36,7 @@ class GeneralExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     ValidationErrorResponse onMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
+        log.error("onMethodArgumentNotValidException ", ex);
         ValidationErrorResponse errorResponse = new ValidationErrorResponse();
         for (FieldError fieldError : ex.getBindingResult().getFieldErrors()) {
             errorResponse.getViolations().add(Violation.builder()

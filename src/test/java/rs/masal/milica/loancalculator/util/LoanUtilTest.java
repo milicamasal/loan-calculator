@@ -13,10 +13,10 @@ public class LoanUtilTest {
 
     @ParameterizedTest
     @MethodSource("paymentTestData")
-    void shouldCalculateCorrectPaymentAmount(BigDecimal loanAmount,
-                                             BigDecimal monthlyInterestRate,
-                                             int numberOfMonths,
-                                             BigDecimal expectedPaymentAmount) {
+    void submitsPaymentData_ReturnsCorrectPaymentAmount(BigDecimal loanAmount,
+                                                        BigDecimal monthlyInterestRate,
+                                                        int numberOfMonths,
+                                                        BigDecimal expectedPaymentAmount) {
         BigDecimal calculatedPaymentAmount = LoanUtils.calculatePaymentAmount(loanAmount, monthlyInterestRate, numberOfMonths);
         Assertions.assertEquals(0, calculatedPaymentAmount.compareTo(expectedPaymentAmount));
     }
@@ -32,15 +32,14 @@ public class LoanUtilTest {
 
     @ParameterizedTest
     @MethodSource("monthlyInterestTestData")
-    void shouldCalculateCorrectMonthlyInterestRate(BigDecimal annualInterestRate,
-                                                   BigDecimal expectedMonthlyInterestRate) {
+    void submitsAnnualInterestRate_ReturnsCorrectMonthlyInterestRate(BigDecimal annualInterestRate,
+                                                                     BigDecimal expectedMonthlyInterestRate) {
         BigDecimal calculatedMonthlyInterestRate = LoanUtils.calculateMonthlyInterestRate(annualInterestRate);
         Assertions.assertEquals(0, calculatedMonthlyInterestRate.compareTo(expectedMonthlyInterestRate));
     }
 
     static Stream<Arguments> monthlyInterestTestData() {
         return Stream.of(
-                Arguments.of(BigDecimal.valueOf(5), BigDecimal.valueOf(0.00416667)),
                 Arguments.of(BigDecimal.valueOf(5), BigDecimal.valueOf(0.00416667)),
                 Arguments.of(BigDecimal.valueOf(3), BigDecimal.valueOf(0.0025)),
                 Arguments.of(BigDecimal.valueOf(100), BigDecimal.valueOf(0.08333333))

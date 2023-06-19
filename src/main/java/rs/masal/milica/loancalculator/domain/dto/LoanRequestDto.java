@@ -1,7 +1,10 @@
 package rs.masal.milica.loancalculator.domain.dto;
 
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.Max;
@@ -13,7 +16,6 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ToString
 public class LoanRequestDto {
     @Positive(message = "{loan-amount.positive}")
     @NotNull(message = "{loan-amount.required}")

@@ -39,7 +39,7 @@ public class LoanCalculatorControllerTest {
 
 
     @Test
-    public void post_submitsValidLoanRequest_Returns200() throws Exception {
+    public void submitsValidLoanRequest_Returns200() throws Exception {
         String requestBody = objectMapper.writeValueAsString(TestData.LOAN_REQUEST_DTO);
 
         Mockito.when(loanService.calculateInstallmentPlan(TestData.LOAN_REQUEST_DTO))
@@ -80,7 +80,7 @@ public class LoanCalculatorControllerTest {
 
 
     @Test
-    public void post_submitsNegativeLoanAmount_Returns400() throws Exception {
+    public void submitsNegativeLoanAmount_Returns400() throws Exception {
         String requestBody = objectMapper.writeValueAsString(TestData.LOAN_REQUEST_NEGATIVE_LOAN_AMOUNT_DTO);
 
         ResultActions resultActions = mockMvc.perform(MockMvcRequestBuilders
@@ -94,7 +94,7 @@ public class LoanCalculatorControllerTest {
     }
 
     @Test
-    public void post_submitsNegativeAnnualInterestRate_Returns400() throws Exception {
+    public void submitsNegativeAnnualInterestRate_Returns400() throws Exception {
         String requestBody = objectMapper.writeValueAsString(TestData.LOAN_REQUEST_NEGATIVE_ANNUAL_INTEREST_RATE);
 
         ResultActions resultActions = mockMvc.perform(MockMvcRequestBuilders
@@ -107,7 +107,7 @@ public class LoanCalculatorControllerTest {
     }
 
     @Test
-    public void post_submitsZeroNumberOfMonths_Returns400() throws Exception {
+    public void submitsZeroNumberOfMonths_Returns400() throws Exception {
         String requestBody = objectMapper.writeValueAsString(TestData.LOAN_REQUEST_ZERO_NUMBER_OF_MONTHS);
 
         ResultActions resultActions = mockMvc.perform(MockMvcRequestBuilders
@@ -121,7 +121,7 @@ public class LoanCalculatorControllerTest {
     }
 
     @Test
-    public void post_submitsEmptyBody_Returns400() throws Exception {
+    public void submitsEmptyBody_Returns400() throws Exception {
         final String emptyBody = "{}";
         ResultActions resultActions = mockMvc.perform(MockMvcRequestBuilders
                 .post(LOAN_CALCULATOR_URL)

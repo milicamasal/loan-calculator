@@ -14,20 +14,19 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "LOAN_REQUEST")
+@Table(name = "loan_request")
 public class LoanRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", unique = true)
     private Long id;
 
-    @Column(name = "LOAD_AMOUNT", nullable = false)
+    @Column(name = "loan_amount", nullable = false)
     private BigDecimal loanAmount;
 
-    @Column(name = "ANNUAL_INTEREST_RATE", nullable = false)
+    @Column(name = "annual_interest_rate", nullable = false)
     private BigDecimal annualInterestRate;
 
-    @Column(name = "NUMBER_OD_MONTHS", nullable = false)
+    @Column(name = "number_of_months", nullable = false)
     private Integer numberOfMonths;
 
     @OneToMany(mappedBy = "loanRequest", orphanRemoval = true,

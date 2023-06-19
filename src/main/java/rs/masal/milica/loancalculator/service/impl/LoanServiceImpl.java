@@ -27,6 +27,7 @@ public class LoanServiceImpl implements LoanService {
     @Override
     @Transactional
     public InstallmentPlanDto calculateInstallmentPlan(LoanRequestDto loanRequestDto) {
+        log.trace("Calculating installment plan for request {}", loanRequestDto);
         InstallmentPlanDto installmentPlan = calculator.calculate(loanRequestDto);
         LoanRequest loanRequest = modelMapper.map(loanRequestDto, LoanRequest.class);
 
